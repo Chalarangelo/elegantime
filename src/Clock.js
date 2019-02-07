@@ -16,7 +16,7 @@ class Clock extends Component {
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => this.tick(), 1000);
+    this.interval = setInterval(() => this.tick(), 16);
   }
 
   componentWillUnmount() {
@@ -25,6 +25,7 @@ class Clock extends Component {
 
   render() {
     let rad = (this.state.date.getMinutes() + this.state.date.getSeconds() / 60);
+    let sRad = (this.state.date.getSeconds() * 1000 + this.state.date.getMilliseconds())/60000;
     let options = {
       weekday: 'short',
       year: 'numeric',
@@ -54,6 +55,9 @@ class Clock extends Component {
           : (rad < 52.5) ? `polygon(50% 0%, 100% 0, 100% 100%, 0 100%, 0 ${100 - (rad - 37.5)/15 * 100}%, 50% 50%)` 
           : `polygon(50% 0%, 100% 0, 100% 100%, 0 100%, 0 0, ${(rad - 52.5) / 7.5 * 50}% 0, 50% 50%)`
         }}>
+        </div>
+        <div className="Seconds" style={{transform: `rotate(${sRad * 360}deg)`, transformOrigin: 'bottom'}}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
         </div>
       </div>
     );
