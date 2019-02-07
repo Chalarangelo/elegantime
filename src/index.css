@@ -6,6 +6,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: black;
   font-weight: 100;
+  overflow: hidden;
 }
 
 #root {
@@ -15,3 +16,5 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+button:focus {outline:0;}

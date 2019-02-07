@@ -41,3 +41,39 @@ iframe {
        object-fit: cover;
   }
 }
+
+.Video-Previous-Button, .Video-Next-Button {
+  position: fixed;
+  z-index: 8;
+  border: 0;
+  background: transparent;
+  top: calc(50vh - 12px);
+  cursor: pointer;
+}
+
+.Video-Previous-Button svg, .Video-Next-Button svg {
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,.14)) drop-shadow(0 3px 1px rgba(0,0,0,.12)) drop-shadow(0 1px 5px rgba(0,0,0,.2));
+}
+
+.Video-Previous-Button {
+  left: 0;
+}
+
+.Video-Next-Button {
+  right: 0;
+}
+
+@media screen and (max-width: 340px) {
+  .Video-Previous-Button, .Video-Next-Button {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 400px) and (orientation: landscape) {
+  .Video-Previous-Button {
+    left: 3vmin;
+  }
+  .Video-Next-Button {
+    right: 3vmin
+  }
+}

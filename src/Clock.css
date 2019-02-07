@@ -87,7 +87,7 @@
 }
 
 .Clock .Seconds {
-  position: fixed;
-  height: 40vmin;
-  top: 10vmin;
+  position: absolute;
+  height: 50%;
+  top: 0;
 }
