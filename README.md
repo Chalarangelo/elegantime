@@ -1,6 +1,6 @@
 # elegantime
 
-![Splash](splash.png)
+[![Splash](splash.png)](https://elegantime.netlify.com/)
 
 Elegant React-based clock
 
