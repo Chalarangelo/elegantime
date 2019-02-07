@@ -1,0 +1,43 @@
+.Video-Overlay {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  z-index: 5;
+}
+
+.Video-Container {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .Video-Background {
+    height: 300%;
+    top: -100%;
+  }
+}
+@media (max-aspect-ratio: 16/9) {
+  .Video-Background {
+    width: 300%;
+    left: -100%;
+  }
+}
+@supports ((-o-object-fit: cover) or (object-fit: cover)) {
+  .Video-Background video {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
