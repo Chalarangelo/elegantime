@@ -24,9 +24,19 @@ class Elegantime extends Component {
   }
 
   render() {
+    let rad = (this.state.date.getMinutes() + this.state.date.getSeconds() / 60);
+    console.log(rad);
     return (
       <div className="Clock">
-        <p className="Hours">{this.state.date.getSeconds()}</p>
+        <p className="Hours">{this.state.date.getHours().toString().padStart(2,'0')}</p>
+        <div className="Minutes" style={{ clipPath: 
+          (rad < 7.5) ? `polygon(50% 0, 50% 50%, ${50 + rad/7.5 * 50}% 0, 100% 0, 100% 100%, 0 100%, 0 50%, 0 0)`
+          : (rad < 22.5) ? `polygon(50% 0, 50% 50%, 100% ${(rad - 7.5) / 15 * 100}%, 100% 0, 100% 100%, 0 100%, 0 50%, 0 0)`
+          : (rad < 37.5) ? `polygon(50% 0, 50% 0, 50% 50%, ${100 - (rad - 22.5)/15 * 100}% 100%, 50% 100%, 0 100%, 0 50%, 0 0)`
+          : (rad < 52.5) ? `polygon(50% 0%, 50% 50%, 50% 100%, 0 ${100 - (rad - 37.5)/15 * 100}%, 0 50%, 0 0)` 
+          : `polygon(0 0, 50% 0, 50% 50%, ${(rad - 52.5)/7.5 * 50}% 0)`
+        }}>
+        </div>
       </div>
     );
   }
