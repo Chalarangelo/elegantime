@@ -6,9 +6,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid white;
-  border-radius: 100%; */
   position: relative;
+  flex-flow: row wrap;
+}
+
+.Clock .Times {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  flex: 0 0 100%;
+  align-self: flex-end;
 }
 
 .Clock .Hours {
@@ -17,11 +27,51 @@
   letter-spacing: 2px;
 }
 
+.Clock .Mins {
+  color: white;
+  font-size: 10vmin;
+  letter-spacing: 1px;
+  padding-bottom: 8vmin;
+  padding-top: 2vmin;
+  box-sizing: border-box;
+  width: 8vmin;
+}
+
+.Clock .Secs {
+  color: white;
+  font-size: 5vmin;
+  letter-spacing: 1px;
+  margin-left: -7vmin;
+  padding-top: 8vmin;
+  box-sizing: border-box;
+  width: 6vmin;
+}
+
+.Clock .Date {
+  color: white;
+  font-size: 6vmin;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  flex: 0 0 100%;
+  align-self: flex-start;
+}
+
 .Clock .Minutes {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
   border: 1px solid white;
+  border-radius: 100%;
+  display: block;
+  position: absolute;
+}
+
+.Clock .Minutes-Negative {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px dotted white;
   border-radius: 100%;
   display: block;
   position: absolute;

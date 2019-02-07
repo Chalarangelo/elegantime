@@ -25,16 +25,34 @@ class Elegantime extends Component {
 
   render() {
     let rad = (this.state.date.getMinutes() + this.state.date.getSeconds() / 60);
-    console.log(rad);
+    let options = {
+      weekday: 'short',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    };
     return (
       <div className="Clock">
-        <p className="Hours">{this.state.date.getHours().toString().padStart(2,'0')}</p>
+        <div className="Times">
+          <span className="Hours">{this.state.date.getHours().toString().padStart(2, '0')}</span>
+          <span className="Mins">{this.state.date.getMinutes().toString().padStart(2, '0')}</span>
+          <span className="Secs">{this.state.date.getSeconds().toString().padStart(2, '0')}</span>
+        </div>
+        <span className="Date">{this.state.date.toLocaleDateString('en-US', options)}</span>
         <div className="Minutes" style={{ clipPath: 
           (rad < 7.5) ? `polygon(50% 0, 50% 50%, ${50 + rad/7.5 * 50}% 0, 100% 0, 100% 100%, 0 100%, 0 50%, 0 0)`
           : (rad < 22.5) ? `polygon(50% 0, 50% 50%, 100% ${(rad - 7.5) / 15 * 100}%, 100% 0, 100% 100%, 0 100%, 0 50%, 0 0)`
           : (rad < 37.5) ? `polygon(50% 0, 50% 0, 50% 50%, ${100 - (rad - 22.5)/15 * 100}% 100%, 50% 100%, 0 100%, 0 50%, 0 0)`
           : (rad < 52.5) ? `polygon(50% 0%, 50% 50%, 50% 100%, 0 ${100 - (rad - 37.5)/15 * 100}%, 0 50%, 0 0)` 
           : `polygon(0 0, 50% 0, 50% 50%, ${(rad - 52.5)/7.5 * 50}% 0)`
+        }}>
+        </div>
+        <div className="Minutes-Negative" style={{ clipPath: 
+          (rad < 7.5) ? `polygon(50% 0, 100% 0, ${50 + rad / 7.5 * 50}% 0, 50% 50%)`
+          : (rad < 22.5) ? `polygon(50% 0, 100% 0, 100% ${(rad - 7.5) / 15 * 100}%, 50% 50%)`
+          : (rad < 37.5) ? `polygon(50% 0%, 100% 0, 100% 100%, 0 100%, ${100 - (rad - 22.5) / 15 * 100}% 100%, 50% 50%)`
+          : (rad < 52.5) ? `polygon(50% 0%, 100% 0, 100% 100%, 0 100%, 0 ${100 - (rad - 37.5)/15 * 100}%, 50% 50%)` 
+          : `polygon(50% 0%, 100% 0, 100% 100%, 0 100%, 0 0, ${(rad - 52.5) / 7.5 * 50}% 0, 50% 50%)`
         }}>
         </div>
       </div>
