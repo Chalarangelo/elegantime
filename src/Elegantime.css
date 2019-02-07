@@ -1,0 +1,15 @@
+.Clock {
+  text-align: center;
+  width: 80vmin;
+  height: 80vmin;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+}
+
+.Clock .Hours {
+  color: white;
+  font-size: 12vmin;
+}
