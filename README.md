@@ -1,3 +1,3 @@
-#elegantime
+# elegantime
 
 Elegant React-based clock
